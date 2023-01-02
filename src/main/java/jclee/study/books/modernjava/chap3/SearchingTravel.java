@@ -68,6 +68,59 @@ public class SearchingTravel {
 		return returnValue;
 	}
 
+	public List<TravelInfo> searchTravelInfo(String searchType, String value) {
+		List<TravelInfo> returnValue = new ArrayList<>();
+
+		if(searchType.equals("country")) {
+			for (TravelInfo travelInfo : travelInfoList) {
+				if (value.equals(travelInfo.getCountry())) {
+					returnValue.add(travelInfo);
+				}
+			}
+		}else if(searchType.equals("city")){
+			for(TravelInfo travelInfo : travelInfoList) {
+				if(value.equals(travelInfo.getCity()) ) {
+					returnValue.add(travelInfo);
+				}
+			}
+		}
+
+
+		return returnValue;
+	}
+
+	public List<TravelInfo> searchTravelInfoByCountry(String country) {
+		List<TravelInfo> returnValue = new ArrayList<>();
+
+		for(TravelInfo travelInfo : travelInfoList) {
+			if(country.equals(travelInfo.getCountry()) ) {
+				returnValue.add(travelInfo);
+			}
+		}
+
+		return returnValue;
+	}
+
+	public List<TravelInfo> searchTravelInfoByCity(String city) {
+		List<TravelInfo> returnValue = new ArrayList<>();
+
+		for(TravelInfo travelInfo : travelInfoList) {
+			if(city.equals(travelInfo.getCity()) ) {
+				returnValue.add(travelInfo);
+			}
+		}
+
+		return returnValue;
+	}
+
+
+
+
+
+
+
+
+
 	public static void main(String[] args) {
 		SearchingTravel travelSearch = new SearchingTravel();
 		List<TravelInfo> searchList = travelSearch.searchTravelInfo(SearchingTravel.COUNTRY_VIETNAM);
